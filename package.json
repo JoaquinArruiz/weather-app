@@ -1,0 +1,27 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "a weather app using weatherapi.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaquinArruiz/weather-app.git"
+  },
+  "author": "JoaquinArruiz, antelor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoaquinArruiz/weather-app/issues"
+  },
+  "homepage": "https://github.com/JoaquinArruiz/weather-app#readme",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "sass": "^1.64.2",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
