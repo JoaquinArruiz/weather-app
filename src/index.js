@@ -23,4 +23,5 @@ console.log(weather.getDay())
 console.log(weather.getFeelsLike())
 
 console.log(weather.getForecast())
-
+console.log(weather.day1)
+console.log(weather.day2)

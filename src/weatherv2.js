@@ -1,6 +1,10 @@
 export class weather2 {
     constructor(data) {
         this.data = data
+        this.forecast = data.forecast
+        this.day0 = data.forecast.forecastday[0]
+        this.day1 = data.forecast.forecastday[1]
+        this.day2 = data.forecast.forecastday[2]
     }
 
 
@@ -55,11 +59,5 @@ export class weather2 {
     getForecast() {
         return this.data.forecast
     }
-    forecast = {
-        getDate() {
-                    console.log(this.data)
-                    return this.data.forecast.forecastday[1].date
-                }
-            }
 }
     
