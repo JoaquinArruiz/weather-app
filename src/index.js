@@ -1,38 +1,52 @@
 // Path: src/weatherv2.js
-import { weather2 } from "./weatherv2";
+import { Weather } from "./weather";
 
 
 
 const APIKEY = "21885e66ee224fc9a14104524231507"
-let location = 'rosario'
-let weather = new weather2(await searchLocation(APIKEY, location))
 
+let weather = await createWeather('Rosario')
+let searchButton = document.querySelector(".search-button")
+
+// todayWeather: location, weather
+let todayWeather = document.querySelector(".today-weather")
+
+// todayStats: humidity, rain chance
+let todayStats = document.querySelector(".today-stats")
+
+// hourlyWeather: today temps per 4 hours
+let hourlyWeather = document.querySelector(".hourly-weather")
+
+
+//create weather object
+async function createWeather(location) {    
+    let weather = new Weather(await searchLocation(APIKEY, location))
+    return weather
+}
+
+//api request, returns data object
 async function searchLocation(APIKEY, location) {
     let response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${location}&days=3`, {mode: "cors"})
     let data = await response.json()
     return data
 }
 
+//renders html elements
+function render(){
+    todayWeather.appendChild(weather.renderLocationCard())
+    todayWeather.appendChild(weather.renderWeatherCard())
+    todayStats.appendChild(weather.renderHumidity())
+    todayStats.appendChild(weather.renderRainChance())
+    hourlyWeather.appendChild(weather.renderTodayTemps())
+}
 
+searchButton.addEventListener("click", async function() {
+    let location = document.querySelector(".search-input").value
+    weather = await createWeather(location)
+    hourlyWeather.innerHTML = ""
+    todayWeather.innerHTML = ""
+    todayStats.innerHTML = ""
+    render()
+})
 
-
-
-console.log(weather)
-console.log(weather.getName())
-console.log(weather.getRegion())
-console.log(weather.getCountry())
-console.log("")
-console.log(weather.getDay())
-console.log(weather.getFeelsLike())
-
-console.log(weather.getForecast())
-console.log(weather.day1)
-console.log(weather.day2)
-
-let todayWeather = document.querySelector(".today-weather")
-todayWeather.appendChild(weather.renderLocationCard())
-todayWeather.appendChild(weather.renderWeatherCard())
-
-let todayStats = document.querySelector(".today-stats")
-todayStats.appendChild(weather.renderHumidity())
-todayStats.appendChild(weather.renderRainChance())
+render()
