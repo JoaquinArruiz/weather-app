@@ -83,3 +83,5 @@ let weather = {
 }
 
 }
+
+export default weather
