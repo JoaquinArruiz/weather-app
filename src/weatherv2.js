@@ -9,7 +9,7 @@ export class weather2 {
 
 
     
-    //location getters and render
+    //location getters & render
     getName() {
         return this.data.location.name
     }
@@ -30,27 +30,20 @@ export class weather2 {
         return this.data.location.localtime.split(' ')[1]
     }
     
-    renderCard() {
+    renderLocationCard() {
         let card = document.createElement('div')
-        card.classList.add('card')
+        card.classList.add('location-card')
         card.innerHTML = `
-        <div class="card-header">
-            <h3>${this.getName()}</h3>
-            <h5>${this.getRegion()}, ${this.getCountry()}</h5>
-            <h5>${this.getDay()}</h5>
-            <h5>${this.getTime()}</h5>
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">${this.getTemp()}</h5>
-            <p class="card-text">${this.getCondition()}</p>
-            <p class="card-text">${this.getFeelsLike()}</p>
-        </div>
-        `
+            <h3 class = "location-name">${this.getName()}</h3>
+            <h5 class = "location-region">${this.getRegion()}, ${this.getCountry()}</h5>
+            <h5 class = "location-day">${this.getDay()}</h5>
+            <h5 class = "location-hour">${this.getTime()}</h5>
+            `
         return card
     }
 
 
-    //current getters
+    //current getters & render
     getTemp() {
         return this.data.current.temp_c + ' °C'
     }
@@ -75,8 +68,51 @@ export class weather2 {
         }
     }
 
+    renderWeatherCard() {
+        let card = document.createElement('div')
+        card.classList.add('weather-card')
+        card.innerHTML = `
+            <h3 class = "weather-temp">${this.getTemp()}</h3>
+            <h5 class = "weather-condition">${this.getCondition()}</h5>
+            <h5 class = "weather-feels-like">Feels like: ${this.getFeelsLike()}</h5>
+            <h5 class = "weather-cloud">Clouds: ${this.getCloud()}</h5>
+            `
+        return card
+    }
+
+
+    //today stats getters & render
+    getRainChance() {
+        return this.day0.day.daily_chance_of_rain + '%'
+    }
+
+    renderRainChance() {
+        let card = document.createElement('div')
+        card.classList.add('rain-chance')
+        card.innerHTML = `
+            <h5 class = "rain-chance">Rain chance: ${this.getRainChance()}</h5>
+            `
+        return card
+    }
+
+
+    getHumidity() {
+        return this.day0.day.avghumidity + '%'
+    }
+
+    renderHumidity() {
+        let card = document.createElement('div')
+        card.classList.add('humidity')
+        card.innerHTML = `
+            <h5 class = "humidity">Humidity: ${this.getHumidity()}</h5>
+            `
+        return card
+    }
+
+
+    //forecast getters
     getForecast() {
-        return this.data.forecast
+        return this.forecast
     }
 }
     

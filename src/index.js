@@ -30,4 +30,9 @@ console.log(weather.day1)
 console.log(weather.day2)
 
 let todayWeather = document.querySelector(".today-weather")
-todayWeather.appendChild(weather.renderCard())
+todayWeather.appendChild(weather.renderLocationCard())
+todayWeather.appendChild(weather.renderWeatherCard())
+
+let todayStats = document.querySelector(".today-stats")
+todayStats.appendChild(weather.renderHumidity())
+todayStats.appendChild(weather.renderRainChance())
