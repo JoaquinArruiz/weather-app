@@ -9,7 +9,7 @@ export class weather2 {
 
 
     
-    //location getters
+    //location getters and render
     getName() {
         return this.data.location.name
     }
@@ -28,6 +28,25 @@ export class weather2 {
 
     getTime() {
         return this.data.location.localtime.split(' ')[1]
+    }
+    
+    renderCard() {
+        let card = document.createElement('div')
+        card.classList.add('card')
+        card.innerHTML = `
+        <div class="card-header">
+            <h3>${this.getName()}</h3>
+            <h5>${this.getRegion()}, ${this.getCountry()}</h5>
+            <h5>${this.getDay()}</h5>
+            <h5>${this.getTime()}</h5>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">${this.getTemp()}</h5>
+            <p class="card-text">${this.getCondition()}</p>
+            <p class="card-text">${this.getFeelsLike()}</p>
+        </div>
+        `
+        return card
     }
 
 
