@@ -21,8 +21,15 @@ export class Weather {
         return this.data.location.region
     }
     
-    getDay() {
-        return this.data.location.localtime.split(' ')[0]
+    getDayFormated() {
+        let date = this.data.location.localtime.split(' ')[0]
+        let day = date.split('-')[2]
+        let month = date.split('-')[1]
+        let year = date.split('-')[0]
+        let days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat']
+        let d = new Date(year, month, day)
+        return days[d.getDay()] + ' | ' + day + '/' + month
+        // d.getDay is a method that returns the day of the week as a number (0-6) (from Date class)
     }
     
     getTime() {
@@ -42,7 +49,7 @@ export class Weather {
                 ${this.getName()}
             </h3>
             <h5 class = "location-region">${this.getRegion()}, ${this.getCountry()}</h5>
-            <h5 class = "location-day">${this.getDay()} ${this.getTime()}</h5>            `
+            <h5 class = "location-day">${this.getDayFormated()} | ${this.getTime()}</h5>            `
         return card
     }
 

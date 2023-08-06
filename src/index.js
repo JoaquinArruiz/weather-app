@@ -36,22 +36,39 @@ async function searchLocation(APIKEY, location) {
 
 //renders html elements
 function render(){
+    let separator = document.createElement('div')
+    separator.classList.add('separator')
+    separator.innerHTML = ` | `
     todayWeather.appendChild(weather.renderLocationCard())
     todayWeather.appendChild(weather.renderWeatherCard())
     todayStats.appendChild(weather.renderHumidity())
+    todayStats.appendChild(separator)
     todayStats.appendChild(weather.renderRainChance())
     hourlyWeather.appendChild(weather.renderTodayTemps())
     forecastWeather.appendChild(weather.renderForecast())
 }
 
 searchButton.addEventListener("click", async function() {
+    let form = document.querySelector(".search-form")
     let location = document.querySelector(".search-input").value
-    weather = await createWeather(location)
-    hourlyWeather.innerHTML = ""
-    todayWeather.innerHTML = ""
-    todayStats.innerHTML = ""
-    forecastWeather.innerHTML = ""
-    render()
+    if (!location.replace(/\s/g, '').length == 0) {
+        try{
+            weather = await createWeather(location)
+        } catch{
+            alert("Sorry, we couldn't find that location.")
+        }
+        
+        hourlyWeather.innerHTML = ""
+        todayWeather.innerHTML = ""
+        todayStats.innerHTML = ""
+        forecastWeather.innerHTML = ""
+        render()
+        form.reset()
+    }
+    else {
+        form.reset()
+    }
 })
+
 
 render()
