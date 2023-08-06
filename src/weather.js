@@ -136,24 +136,20 @@ export class Weather {
     getTodayTemps() {
         let temps = {
             '8:00': {
-                temp: this.today.hour[8].temp_c + ' °C',
+                temp: this.today.hour[8].temp_c + '°',
                 condition: this.today.hour[8].condition.text,
-                feelslike_c: this.today.hour[8].feelslike_c + ' °C'
             },
             '12:00': {
-                temp: this.today.hour[12].temp_c + ' °C',
+                temp: this.today.hour[12].temp_c + '°',
                 condition: this.today.hour[12].condition.text,
-                feelslike_c: this.today.hour[12].feelslike_c + ' °C'
             },
             '16:00': {
-                temp: this.today.hour[16].temp_c + ' °C',
+                temp: this.today.hour[16].temp_c + '°',
                 condition: this.today.hour[16].condition.text,
-                feelslike_c: this.today.hour[16].feelslike_c + ' °C'
             },
             '20:00': {
-                temp: this.today.hour[20].temp_c + ' °C',
+                temp: this.today.hour[20].temp_c + '°',
                 condition: this.today.hour[20].condition.text,
-                feelslike_c: this.today.hour[20].feelslike_c + ' °C'
             }
         }
         return temps
@@ -168,11 +164,11 @@ export class Weather {
             tempCard.classList.add('temp-card')
             tempCard.innerHTML = `
                 <h5 class = "temp-hour">${temp}</h5>
+                <img src="../img/cloud-solid.svg"></img>
                 <h5 class = "temp-temp">${tempsData[temp].temp}</h5>
-                <h5 class = "temp-condition">${tempsData[temp].condition}</h5>
-                <h5 class = "temp-feels-like">Feels like: ${tempsData[temp].feelslike_c}</h5>
                 `
-            temps.appendChild(tempCard)
+                temps.appendChild(tempCard)
+            //<h5 class = "temp-condition">${tempsData[temp].condition}</h5>
         }
         return temps
     }

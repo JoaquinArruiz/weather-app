@@ -14,8 +14,8 @@ let todayWeather = document.querySelector(".today-weather")
 // todayStats: humidity, rain chance
 let todayStats = document.querySelector(".today-stats")
 
-// hourlyWeather: today temps per 4 hours
-let hourlyWeather = document.querySelector(".hourly-weather")
+// midScreen: today temps per 4 hours
+let midScreen = document.querySelector(".mid-screen")
 
 // forecastWeather: 2 days forecast
 let forecastWeather = document.querySelector(".forecast-weather")
@@ -44,7 +44,7 @@ function render(){
     todayStats.appendChild(weather.renderHumidity())
     todayStats.appendChild(separator)
     todayStats.appendChild(weather.renderRainChance())
-    hourlyWeather.appendChild(weather.renderTodayTemps())
+    midScreen.appendChild(weather.renderTodayTemps())
     forecastWeather.appendChild(weather.renderForecast())
 }
 
@@ -58,7 +58,7 @@ searchButton.addEventListener("click", async function() {
             alert("Sorry, we couldn't find that location.")
         }
         
-        hourlyWeather.innerHTML = ""
+        midScreen.innerHTML = ""
         todayWeather.innerHTML = ""
         todayStats.innerHTML = ""
         forecastWeather.innerHTML = ""

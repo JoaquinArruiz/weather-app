@@ -159,5 +159,41 @@ table {
     }
 }
 
+.mid-screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .today-temps{
+        display: flex;
+        width: 100%;
+        margin:0.2rem;
+
+        .temp-card {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(255, 255, 255, 20%);
+            border-radius: 10px;
+            width: 4rem;
+            flex: 1 0 0;
+            margin: 0.3rem;
+            
+            & > *{
+                padding: 0.7rem;
+            }
+
+            .temp-temp{
+                font-size: 1.2rem;
+                margin-top:0.2rem;
+            }
+        }
+
+        img{
+            width: 2rem;
+            filter: invert(100%) sepia(4%) saturate(15%) hue-rotate(30deg) brightness(107%) contrast(107%);
+        }
+    }
+}
 
 
