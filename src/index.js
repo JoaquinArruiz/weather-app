@@ -1,6 +1,6 @@
 // Path: src/weatherv2.js
 import { Weather } from "./weather";
-
+import '../styles/main.scss';
 
 
 const APIKEY = "21885e66ee224fc9a14104524231507"

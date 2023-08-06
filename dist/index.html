@@ -6,21 +6,23 @@
     <title>Weather App</title>
 </head>
 <body>
-    <div class = "top-screen">
-        <div class = "search-bar">
-            <form action="#">
-                <input class = "search-input"type="text" placeholder="Type city"/>
-                <button class="search-button">Search</button>
-            </form>
+    <div class = "container">
+        <div class = "section top-screen">
+            <div class = "search-bar">
+                <form action="#">
+                    <input class = "search-input"type="text" placeholder="Type city"/>
+                    <button class="search-button">Search</button>
+                </form>
+            </div>
+            <div class = "today-weather"></div>
+            <div class = "today-stats"></div>
         </div>
-        <div class = "today-weather"></div>
-        <div class = "today-stats"></div>
-    </div>
-    <div class = "mid-screen">
-        <div class = "hourly-weather"></div>
-    </div>
-    <div class = "bottom-screen">
-        <div class = "forecast-weather"></div>
+        <div class = "section mid-screen">
+            <div class = "hourly-weather"></div>
+        </div>
+        <div class = "section bottom-screen">
+            <div class = "forecast-weather"></div>
+        </div>
     </div>
     <script src = "main.js"></script>
 </body>

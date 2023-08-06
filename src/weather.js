@@ -37,18 +37,19 @@ export class Weather {
         let card = document.createElement('div')
         card.classList.add('location-card')
         card.innerHTML = `
-            <h3 class = "location-name">${this.getName()}</h3>
+            <h3 class = "location-name">
+                <img src="../img/location-dot-solid.svg"></img>
+                ${this.getName()}
+            </h3>
             <h5 class = "location-region">${this.getRegion()}, ${this.getCountry()}</h5>
-            <h5 class = "location-day">${this.getDay()}</h5>
-            <h5 class = "location-hour">${this.getTime()}</h5>
-            `
+            <h5 class = "location-day">${this.getDay()} ${this.getTime()}</h5>            `
         return card
     }
 
 
     //current getters & render
     getTemp() {
-        return this.data.current.temp_c + ' °C'
+        return this.data.current.temp_c + '°'
     }
 
     getCondition() {
@@ -56,7 +57,7 @@ export class Weather {
     }
 
     getFeelsLike() {
-        return this.data.current.feelslike_c + ' °C'
+        return this.data.current.feelslike_c + '°'
     }
 
     getCloud() {
@@ -72,19 +73,25 @@ export class Weather {
     }
 
     getMinMaxTemp() {
-        return this.today.day.mintemp_c + ' °C / ' + this.today.day.maxtemp_c + ' °C'
+        return this.today.day.mintemp_c + '° / ' + this.today.day.maxtemp_c + '°'
     }
 
     renderWeatherCard() {
         let card = document.createElement('div')
         card.classList.add('weather-card')
         card.innerHTML = `
-            <h3 class = "weather-temp">${this.getTemp()}</h3>
-            <h5 class = "weather-condition">${this.getCondition()}</h5>
-            <h5 class = "weather-feels-like">Feels like: ${this.getFeelsLike()}</h5>
-            <h5 class = "weather-cloud">Clouds: ${this.getCloud()}</h5>
-            <h5 class = "weather-minmax">Min/Max: ${this.getMinMaxTemp()}</h5>
-            `
+            <div class="first">
+                <h3 class = "weather-temp">
+                    <img src="../img/cloud-solid.svg"></img>
+                    ${this.getTemp()}
+                </h3>
+                <h5 class = "weather-condition">${this.getCondition()}</h5>
+            </div>
+
+            <div class="second">
+                <h5 class = "weather-minmax">${this.getMinMaxTemp()}</h5>            
+                <h5 class = "weather-feels-like">Feels like: ${this.getFeelsLike()}</h5>
+            </div>`
         return card
     }
 
