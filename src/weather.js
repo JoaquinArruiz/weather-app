@@ -39,6 +39,10 @@ export class Weather {
     getIsDay(){
         return this.data.current.is_day
     }
+
+    getCurrentIcon(){
+        return this.data.current.condition.icon
+    }
     
     renderLocationCard() {
         let card = document.createElement('div')
@@ -83,13 +87,17 @@ export class Weather {
         return this.today.day.mintemp_c + '° / ' + this.today.day.maxtemp_c + '°'
     }
 
+    getCurrentConditionCode() {
+        return this.data.current.condition.code
+    }
+
     renderWeatherCard() {
         let card = document.createElement('div')
         card.classList.add('weather-card')
         card.innerHTML = `
             <div class="first">
                 <h3 class = "weather-temp">
-                    <img src="../img/cloud-solid.svg"></img>
+                    <img src="${this.getCurrentIcon()}"></img>
                     ${this.getTemp()}
                 </h3>
                 <h5 class = "weather-condition">${this.getCondition()}</h5>
@@ -138,18 +146,22 @@ export class Weather {
             '8:00': {
                 temp: this.today.hour[8].temp_c + '°',
                 condition: this.today.hour[8].condition.text,
+                icon: this.today.hour[8].condition.icon
             },
             '12:00': {
                 temp: this.today.hour[12].temp_c + '°',
                 condition: this.today.hour[12].condition.text,
+                icon: this.today.hour[12].condition.icon
             },
             '16:00': {
                 temp: this.today.hour[16].temp_c + '°',
                 condition: this.today.hour[16].condition.text,
+                icon: this.today.hour[16].condition.icon
             },
             '20:00': {
                 temp: this.today.hour[20].temp_c + '°',
                 condition: this.today.hour[20].condition.text,
+                icon: this.today.hour[20].condition.icon
             }
         }
         return temps
@@ -164,7 +176,7 @@ export class Weather {
             tempCard.classList.add('temp-card')
             tempCard.innerHTML = `
                 <h5 class = "temp-hour">${temp}</h5>
-                <img src="../img/cloud-solid.svg"></img>
+                <img src="${tempsData[temp].icon}"></img>
                 <h5 class = "temp-temp">${tempsData[temp].temp}</h5>
                 `
                 temps.appendChild(tempCard)
@@ -179,7 +191,8 @@ export class Weather {
             date: this.tomorrow.date.split('-')[2] + '/' + this.tomorrow.date.split('-')[1],
             day: this.tomorrow.day.maxtemp_c + '° / ' + this.tomorrow.day.mintemp_c + '°',
             condition: this.tomorrow.day.condition.text,
-            rainChance: this.tomorrow.day.daily_chance_of_rain + '%'
+            rainChance: this.tomorrow.day.daily_chance_of_rain + '%',
+            icon: this.tomorrow.day.condition.icon
         }
         return data
     }
@@ -189,7 +202,8 @@ export class Weather {
             date: this.tomorrow2.date.split('-')[2] + '/' + this.tomorrow2.date.split('-')[1],
             day: this.tomorrow2.day.maxtemp_c + '° / ' + this.tomorrow2.day.mintemp_c + '°',
             condition: this.tomorrow2.day.condition.text,
-            rainChance: this.tomorrow2.day.daily_chance_of_rain + '%'
+            rainChance: this.tomorrow2.day.daily_chance_of_rain + '%',
+            icon: this.tomorrow2.day.condition.icon
         }
         return data
     }
@@ -208,7 +222,7 @@ export class Weather {
             </div>
 
             <div class="tomorrow-data">
-                <img src="../img/cloud-solid.svg"></img>
+                <img src="${this.getTomorrowData().icon}"></img>
                 <div class="tomorrow-data-stats">
                     <h5 class = "tomorrow-day">${this.getTomorrowData().day}</h5>
                     <h5 class = "tomorrow-rain-chance">Rain: ${this.getTomorrowData().rainChance}</h5>
@@ -221,7 +235,7 @@ export class Weather {
             </div>
 
             <div class="tomorrow-data">
-                <img src="../img/cloud-solid.svg"></img>
+                <img src="${this.getTomorrow2Data().icon}"></img>
                 <div class="tomorrow-data-stats">
                     <h5 class = "tomorrow2-day">${this.getTomorrow2Data().day}</h5>
                     <h5 class = "tomorrow2-rain-chance">Rain: ${this.getTomorrow2Data().rainChance}</h5>
