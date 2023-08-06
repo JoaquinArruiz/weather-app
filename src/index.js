@@ -17,8 +17,8 @@ let todayStats = document.querySelector(".today-stats")
 // midScreen: today temps per 4 hours
 let midScreen = document.querySelector(".mid-screen")
 
-// forecastWeather: 2 days forecast
-let forecastWeather = document.querySelector(".forecast-weather")
+// bottomScreen: 2 days forecast
+let bottomScreen = document.querySelector(".bottom-screen")
 
 
 //create weather object
@@ -45,7 +45,7 @@ function render(){
     todayStats.appendChild(separator)
     todayStats.appendChild(weather.renderRainChance())
     midScreen.appendChild(weather.renderTodayTemps())
-    forecastWeather.appendChild(weather.renderForecast())
+    bottomScreen.appendChild(weather.renderForecast())
 }
 
 searchButton.addEventListener("click", async function() {
@@ -61,7 +61,7 @@ searchButton.addEventListener("click", async function() {
         midScreen.innerHTML = ""
         todayWeather.innerHTML = ""
         todayStats.innerHTML = ""
-        forecastWeather.innerHTML = ""
+        bottomScreen.innerHTML = ""
         render()
         form.reset()
     }
