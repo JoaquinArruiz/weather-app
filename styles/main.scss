@@ -48,12 +48,20 @@ table {
 
 .container{
     padding: 7px;
-    background: linear-gradient(171deg, rgba(143,143,241,1) 20%, rgba(0,212,255,1) 100%);    color:white;
+    background: linear-gradient(180deg, rgba(143,143,241,1) 26%, rgba(8,208,255,1) 85%, rgba(0,212,255,1) 100%);    
+    color:white;
     font-family: 'Poppins', sans-serif;
 }
 
 .section {
     padding: 1rem;
+}
+
+hr{
+    width: 70%;
+    border: 1px solid rgb(255, 255, 255, 70%);
+    border-radius: 10px;
+    height: 85%;
 }
 
 .top-screen{
@@ -211,7 +219,7 @@ table {
             text-align: center;   
             flex-direction: column;
             padding: 1rem;
-            margin: 1rem;
+            margin: 0 1rem;
 
             background-color: rgb(255, 255, 255, 20%);
             border-radius: 10px;
@@ -222,6 +230,7 @@ table {
 
             .tomorrow-data{
                 display: flex;
+                justify-content: center;
                 text-align: left;
                 
                 & > * {
