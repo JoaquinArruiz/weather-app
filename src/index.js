@@ -69,6 +69,5 @@ searchButton.addEventListener("click", async function() {
         form.reset()
     }
 })
-console.log(weather.getCurrentIcon())
 
 render()
