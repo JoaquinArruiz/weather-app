@@ -117,14 +117,8 @@ export class Weather {
         return card
     }
 
-
-    //forecast getters
-    getForecast() {
-        return this.forecast
-    }
-
     
-
+    //today per 4hours getters & render
     getTodayTemps() {
         let temps = {
             '8:00': {
@@ -169,5 +163,29 @@ export class Weather {
         return temps
     }
 
+    //forecast getters and render
+    getTomorrowData() {
+        let data = {
+            day: this.tomorrow.day.maxtemp_c + ' °C / ' + this.tomorrow.day.mintemp_c + ' °C',
+            condition: this.tomorrow.day.condition.text,
+            rainChance: this.tomorrow.day.daily_chance_of_rain + '%'
+        }
+        return data
+    }
+
+    getTomorrow2Data() {
+        let data = {
+            day: this.tomorrow2.day.maxtemp_c + ' °C / ' + this.tomorrow2.day.mintemp_c + ' °C',
+            condition: this.tomorrow2.day.condition.text,
+            rainChance: this.tomorrow2.day.daily_chance_of_rain + '%'
+        }
+        return data
+    }
+
+    renderForecast() {
+        let forecastData = this.getTodayTemps()
+        let forecastCard = document.createElement('div')
+        forecastCard.classList.add('forecast-card')
+    }
 }
     
