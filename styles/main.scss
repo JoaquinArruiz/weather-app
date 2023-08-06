@@ -56,7 +56,7 @@ table {
 
 .container{
     padding: 7px;
-    background: linear-gradient(180deg, rgba(143,143,241,1) 26%, rgba(8,208,255,1) 85%, rgba(0,212,255,1) 100%);    
+    background: linear-gradient(171deg, rgba(143,143,241,1) 26%, rgba(0,212,255,1) 100%);    
     color:white;
     font-family: 'Poppins', sans-serif;
 }
@@ -72,6 +72,7 @@ hr{
     height: 85%;
 }
 
+//Top screen
 .top-screen{
     display: flex;
     flex-direction: column;
@@ -104,12 +105,16 @@ hr{
                 font-family: 'Poppins', sans-serif;
                 font-size: 1.4rem;
                 font-weight: 500;
-                margin-bottom: 0.4rem;
+                margin-bottom: 0.8rem;
 
                 img{
                     width: 0.75rem;
                     filter: invert(100%) sepia(4%) saturate(15%) hue-rotate(30deg) brightness(107%) contrast(107%);
                 }
+            }
+
+            .location-region{
+                margin-bottom: 0.3rem;
             }
 
             .location-region, .location-day, .location-hour{
@@ -135,6 +140,7 @@ hr{
                 .weather-temp{
                     font-size: 4rem;
                     margin-top: 0;
+                    margin-bottom: 0.3rem;
                     display: flex;
                     justify-content: center;
     
@@ -144,10 +150,14 @@ hr{
                         filter: invert(100%) sepia(4%) saturate(15%) hue-rotate(30deg) brightness(107%) contrast(107%);
                     }
                 }
+
+                .weather-condition{
+                    font-size: 1.2rem;
+                }
             }
             
             .second{
-                margin-top: 0.8rem;
+                margin-top: 1.4rem;
 
                 .weather-feels-like{
                     margin-top: 0.2rem;
@@ -164,7 +174,7 @@ hr{
         padding: 1.5rem 0;
         border-radius: 10px;
         margin-top: 0;
-
+        
         b {
             font-size: 1rem;
             font-weight: 800;
@@ -173,6 +183,7 @@ hr{
     }
 }
 
+//Mid screen
 .mid-screen{
     display: flex;
     justify-content: center;
@@ -181,7 +192,7 @@ hr{
     .today-temps{
         display: flex;
         width: 100%;
-        margin:0.2rem;
+        margin: 0.2rem;
 
         .temp-card {
             display: flex;
@@ -210,6 +221,7 @@ hr{
     }
 }
 
+//Bottom screen
 .bottom-screen{
     display: flex;
     
