@@ -49,7 +49,7 @@ export class Weather {
         card.classList.add('location-card')
         card.innerHTML = `
             <h3 class = "location-name">
-                <img src="../img/location-dot-solid.svg"></img>
+                <img class = "location-icon" src="../img/location-dot-solid.svg"></img>
                 ${this.getName()}
             </h3>
             <h5 class = "location-region">${this.getRegion()}, ${this.getCountry()}</h5>
