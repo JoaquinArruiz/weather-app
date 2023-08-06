@@ -166,6 +166,7 @@ export class Weather {
     //forecast getters and render
     getTomorrowData() {
         let data = {
+            date: this.tomorrow.date.split('-')[1] + '/' + this.tomorrow.date.split('-')[2],
             day: this.tomorrow.day.maxtemp_c + ' °C / ' + this.tomorrow.day.mintemp_c + ' °C',
             condition: this.tomorrow.day.condition.text,
             rainChance: this.tomorrow.day.daily_chance_of_rain + '%'
@@ -175,6 +176,7 @@ export class Weather {
 
     getTomorrow2Data() {
         let data = {
+            date: this.tomorrow2.date.split('-')[1] + '/' + this.tomorrow.date.split('-')[2],
             day: this.tomorrow2.day.maxtemp_c + ' °C / ' + this.tomorrow2.day.mintemp_c + ' °C',
             condition: this.tomorrow2.day.condition.text,
             rainChance: this.tomorrow2.day.daily_chance_of_rain + '%'
@@ -183,9 +185,29 @@ export class Weather {
     }
 
     renderForecast() {
-        let forecastData = this.getTodayTemps()
         let forecastCard = document.createElement('div')
+        let tomorrowCard = document.createElement('div')
+        let tomorrow2Card = document.createElement('div')
         forecastCard.classList.add('forecast-card')
+        tomorrowCard.classList.add('tomorrow-card')
+        tomorrow2Card.classList.add('tomorrow2-card')
+        forecastCard.innerHTML = `
+            <h3 class = "forecast-title">Forecast</h3>
+            `
+        tomorrowCard.innerHTML = `
+            <h5 class = "tomorrow-title">${this.getTomorrowData().date}</h5>
+            <h5 class = "tomorrow-day">${this.getTomorrowData().day}</h5>
+            <h5 class = "tomorrow-condition">${this.getTomorrowData().condition}</h5>
+            <h5 class = "tomorrow-rain-chance">Rain chance: ${this.getTomorrowData().rainChance}</h5>
+            `
+        tomorrow2Card.innerHTML = `
+            <h5 class = "tomorrow2-title">${this.getTomorrow2Data().date}</h5>
+            <h5 class = "tomorrow2-day">${this.getTomorrow2Data().day}</h5>
+            <h5 class = "tomorrow2-condition">${this.getTomorrow2Data().condition}</h5>
+            <h5 class = "tomorrow2-rain-chance">Rain chance: ${this.getTomorrow2Data().rainChance}</h5>
+            `
+        forecastCard.appendChild(tomorrowCard)
+        forecastCard.appendChild(tomorrow2Card)
+        return forecastCard
     }
 }
-    

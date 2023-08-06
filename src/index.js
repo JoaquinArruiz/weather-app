@@ -17,6 +17,9 @@ let todayStats = document.querySelector(".today-stats")
 // hourlyWeather: today temps per 4 hours
 let hourlyWeather = document.querySelector(".hourly-weather")
 
+// forecastWeather: 2 days forecast
+let forecastWeather = document.querySelector(".forecast-weather")
+
 
 //create weather object
 async function createWeather(location) {    
@@ -38,6 +41,7 @@ function render(){
     todayStats.appendChild(weather.renderHumidity())
     todayStats.appendChild(weather.renderRainChance())
     hourlyWeather.appendChild(weather.renderTodayTemps())
+    forecastWeather.appendChild(weather.renderForecast())
 }
 
 searchButton.addEventListener("click", async function() {
@@ -46,6 +50,7 @@ searchButton.addEventListener("click", async function() {
     hourlyWeather.innerHTML = ""
     todayWeather.innerHTML = ""
     todayStats.innerHTML = ""
+    forecastWeather.innerHTML = ""
     render()
 })
 
