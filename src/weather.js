@@ -112,7 +112,7 @@ export class Weather {
         let card = document.createElement('div')
         card.classList.add('rain-chance')
         card.innerHTML = `
-            <h5 class = "rain-chance">Rain chance: ${this.getRainChance()}</h5>
+            <h5 class = "rain-chance">Rain chance: <b>${this.getRainChance()}</b></h5>
             `
         return card
     }
@@ -126,7 +126,7 @@ export class Weather {
         let card = document.createElement('div')
         card.classList.add('humidity')
         card.innerHTML = `
-            <h5 class = "humidity">Humidity: ${this.getHumidity()}</h5>
+            <h5 class = "humidity">Humidity: <b>${this.getHumidity()}</b></h5>
             `
         return card
     }
