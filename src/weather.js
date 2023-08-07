@@ -189,7 +189,7 @@ export class Weather {
     getTomorrowData() {
         let data = {
             date: this.tomorrow.date.split('-')[2] + '/' + this.tomorrow.date.split('-')[1],
-            day: this.tomorrow.day.maxtemp_c + '° / ' + this.tomorrow.day.mintemp_c + '°',
+            day: this.tomorrow.day.mintemp_c + '° / ' +  this.tomorrow.day.maxtemp_c+ '°',
             condition: this.tomorrow.day.condition.text,
             rainChance: this.tomorrow.day.daily_chance_of_rain + '%',
             icon: this.tomorrow.day.condition.icon
@@ -200,7 +200,7 @@ export class Weather {
     getTomorrow2Data() {
         let data = {
             date: this.tomorrow2.date.split('-')[2] + '/' + this.tomorrow2.date.split('-')[1],
-            day: this.tomorrow2.day.maxtemp_c + '° / ' + this.tomorrow2.day.mintemp_c + '°',
+            day: this.tomorrow2.day.mintemp_c + '° / ' + this.tomorrow2.day.maxtemp_c + '°',
             condition: this.tomorrow2.day.condition.text,
             rainChance: this.tomorrow2.day.daily_chance_of_rain + '%',
             icon: this.tomorrow2.day.condition.icon
