@@ -20,7 +20,8 @@ let midScreen = document.querySelector(".mid-screen")
 // bottomScreen: 2 days forecast
 let bottomScreen = document.querySelector(".bottom-screen")
 
-
+let tempSwitch = document.querySelector(".temp-switch")
+let switchCheckbox = document.querySelector(".switch-checkbox")
 //create weather object
 async function createWeather(location) {    
     let weather = new Weather(await searchLocation(APIKEY, location))
@@ -35,17 +36,37 @@ async function searchLocation(APIKEY, location) {
 }
 
 //renders html elements
-function render(){
+function render(format){
+
     let separator = document.createElement('div')
     separator.classList.add('separator')
     separator.innerHTML = ` | `
-    todayWeather.appendChild(weather.renderLocationCard())
-    todayWeather.appendChild(weather.renderWeatherCard())
-    todayStats.appendChild(weather.renderHumidity())
-    todayStats.appendChild(separator)
-    todayStats.appendChild(weather.renderRainChance())
-    midScreen.appendChild(weather.renderTodayTemps())
-    bottomScreen.appendChild(weather.renderForecast())
+
+    midScreen.innerHTML = ""
+    todayWeather.innerHTML = ""
+    todayStats.innerHTML = ""
+    bottomScreen.innerHTML = ""
+
+    if (format == "fahrenheit") {
+        todayWeather.appendChild(weather.renderLocationCard())
+        todayWeather.appendChild(weather.renderWeatherCardF())
+        todayStats.appendChild(weather.renderHumidity())
+        todayStats.appendChild(separator)
+        todayStats.appendChild(weather.renderRainChance())
+        midScreen.appendChild(weather.renderTodayTempsF())
+        bottomScreen.appendChild(weather.renderForecastF())
+        return
+    }
+
+    if (format == "celsius"){
+        todayWeather.appendChild(weather.renderLocationCard())
+        todayWeather.appendChild(weather.renderWeatherCardC())
+        todayStats.appendChild(weather.renderHumidity())
+        todayStats.appendChild(separator)
+        todayStats.appendChild(weather.renderRainChance())
+        midScreen.appendChild(weather.renderTodayTempsC())
+        bottomScreen.appendChild(weather.renderForecastC())
+    }
 }
 
 searchButton.addEventListener("click", async function() {
@@ -57,11 +78,6 @@ searchButton.addEventListener("click", async function() {
         } catch{
             alert("Sorry, we couldn't find that location.")
         }
-        
-        midScreen.innerHTML = ""
-        todayWeather.innerHTML = ""
-        todayStats.innerHTML = ""
-        bottomScreen.innerHTML = ""
         render()
         form.reset()
     }
@@ -70,4 +86,13 @@ searchButton.addEventListener("click", async function() {
     }
 })
 
-render()
+tempSwitch.addEventListener("click", function() {
+    if(switchCheckbox.checked){
+        return render("celsius")
+    }
+    else{
+        return render("fahrenheit")
+    }
+})
+
+render("celsius")
