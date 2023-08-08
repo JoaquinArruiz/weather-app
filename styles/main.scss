@@ -275,6 +275,59 @@ hr{
 }
 
 
+//Desktop view
+@media (min-aspect-ratio: 16/9) {
+  .container{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
+
+    grid-template-areas:
+    "top bottom"
+    "mid bottom"
+  }
+
+  .top-screen{
+    grid-area: top;
+  }
+
+  .mid-screen{
+    grid-area: mid;
+  }
+
+  .bottom-screen{
+    grid-area: bottom;
+    
+    .forecast-card{
+      display: flex;
+      flex-direction: column;
+
+      .tomorrow-card{
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        width: auto;
+
+        justify-content: center;
+        align-items: center;
+
+        .tomorrow-data{
+          font-size: 3rem;
+          
+          img{
+            width: 8rem;
+          } 
+        }
+      }
+    }
+
+  }
+
+  hr{
+    display: none;
+  }
+}
+
 // Searchbar https://shipow.github.io/searchbox/#tabscss 
 
 
