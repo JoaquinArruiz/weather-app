@@ -78,7 +78,7 @@ searchButton.addEventListener("click", async function() {
         } catch{
             alert("Sorry, we couldn't find that location.")
         }
-        render()
+        render(checkboxFormat())
         form.reset()
     }
     else {
@@ -86,13 +86,20 @@ searchButton.addEventListener("click", async function() {
     }
 })
 
-tempSwitch.addEventListener("click", function() {
+
+switchCheckbox.addEventListener("click", function() {
+    render(checkboxFormat())
+})
+
+function checkboxFormat(){
     if(switchCheckbox.checked){
-        return render("celsius")
+        return "fahrenheit"
     }
     else{
-        return render("fahrenheit")
+        return "celsius"
     }
-})
+}
+
+console.log(switchCheckbox.checked)
 
 render("celsius")
