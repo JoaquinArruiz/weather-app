@@ -34,6 +34,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
   height: 100%;
+  min-height: 100vh;
   background: linear-gradient(171deg, rgba(143,143,241,1) 26%, rgba(0,212,255,1) 100%);
 }
 ol, ul {
@@ -62,7 +63,6 @@ img{
 
 .container{
     height: 100%;
-    padding: 7px;
     color:white;
     font-family: 'Poppins', sans-serif;
 }
@@ -85,10 +85,6 @@ hr{
     align-items: center;
     justify-content: center;
 
-    & > * {
-        margin-top: 1rem;
-    }
-
     .search-bar{
         margin:0;
         width: 100%;
@@ -99,13 +95,12 @@ hr{
     }
 
     .today-weather{
-        padding:1rem;
+        margin:1rem;
     
         .location-card{
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0.5rem;
 
             .location-name{
                 font-family: 'Poppins', sans-serif;
@@ -517,7 +512,7 @@ $custom:(
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(143,143,241,1);
+      background-color: rgba(0,212,255,1);
       -webkit-transition: .4s;
       transition: .4s;
     }
@@ -560,17 +555,20 @@ $custom:(
 }
   
 .temp-selector{
-    margin: 0rem 1rem;
-    font-size: 2rem;
-  }
+  margin: 0rem 1rem;
+  font-size: 2rem;
+}
+
 .switch-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: 1em;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-top: 1rem;
+  margin-bottom: 0px;
+}
 
 
 
@@ -580,12 +578,11 @@ $custom:(
       outline: solid 1px red;
   }*/
 
-  html,body{
+  html, body{
     height: 100%;
   }
 
   /*
-
   vw? = ancho de tu pantalla en px
   100vw = 1920px
 
@@ -595,17 +592,12 @@ $custom:(
   0.008*1366= 10.928px
 
   100vw = 1366
-
   */
 
   :root{
-    font-size: 0,008vw;
+    font-size: 1vw;
   }
 
-  .searchbox{
-    height: 20px;
-  }
-  
   .container{
     display: grid;
     grid-template-rows: 1fr 1fr;
@@ -632,6 +624,8 @@ $custom:(
     grid-area: mid;
 
     .today-temps{
+      height: 100%;
+      font-size: 1.2rem;
 
       .temp-card{
         display: flex;
@@ -639,9 +633,7 @@ $custom:(
         justify-content: center;
         align-items: center;
         width: auto;
-        
       }
-
     }
   }
 
@@ -651,22 +643,32 @@ $custom:(
     .forecast-card{
       display: flex;
       flex-direction: column;
-
+      justify-content: space-around;
+      gap: 1rem;
+      
       .tomorrow-card{
-        display: block;
-        margin-top: 1rem;
-        width: auto;
+        display: grid;
+        padding: 1rem 0;
+        grid-template-rows: 1fr 2fr;
 
-        .tomorrow-title{
-          margin-top:2rem;
-          margin-bottom: 6rem;
+        & > * {
+          margin-bottom: 0;
         }
 
         .tomorrow-data{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: fit-content;
+
           font-size: 2rem;
+
+          .tomorrow-title{
+            margin-bottom: 0;
+          }
           
           img{
-            width: 8rem;
+            width: 6rem;
           } 
         }
       }
