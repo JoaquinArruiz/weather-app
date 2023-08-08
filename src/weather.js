@@ -111,7 +111,7 @@ export class Weather {
         card.innerHTML = `
             <div class="first">
                 <h3 class = "weather-temp">
-                    <img src="${this.getCurrentIcon()}"></img>
+                    <img class="current-img" src="${this.getCurrentIcon()}"></img>
                     ${this.getTempC()}
                 </h3>
                 <h5 class = "weather-condition">${this.getCondition()}</h5>
@@ -130,7 +130,7 @@ export class Weather {
         card.innerHTML = `
             <div class="first">
                 <h3 class = "weather-temp">
-                    <img src="${this.getCurrentIcon()}"></img>
+                    <img class="current-img" src="${this.getCurrentIcon()}"></img>
                     ${this.getTempF()}
                 </h3>
                 <h5 class = "weather-condition">${this.getCondition()}</h5>

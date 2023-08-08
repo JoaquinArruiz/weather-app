@@ -145,11 +145,6 @@ hr{
                     margin-bottom: 0.3rem;
                     display: flex;
                     justify-content: center;
-    
-                    img{
-                        margin-right: 0.2rem;
-                        width:auto;
-                    }
                 }
 
                 .weather-condition{
@@ -260,7 +255,8 @@ hr{
                 }
 
                 img{
-                    width: 2rem;
+                    width: 64px;
+                    height: auto;
                 }
             }
         }
@@ -268,6 +264,10 @@ hr{
     }
 }
 
+.current-img{
+  height: 64px;
+  width: auto;
+}
 
 // Searchbar https://shipow.github.io/searchbox/#tabscss 
 
@@ -637,6 +637,8 @@ $custom:(
     }
   }
 
+
+
   .bottom-screen{
     grid-area: bottom;
     
@@ -681,5 +683,10 @@ $custom:(
   }
   hr{
     display: none;
+  }
+
+  .current-img{
+    height: 64px;
+    width: auto;
   }
 }
