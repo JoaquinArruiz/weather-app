@@ -1,9 +1,9 @@
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *, *:before, *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -34,7 +34,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
   height: 100%;
-  min-height: 100vh;
+  max-height: 100vh;
   background: linear-gradient(171deg, rgba(143,143,241,1) 26%, rgba(0,212,255,1) 100%);
 }
 ol, ul {
@@ -275,61 +275,7 @@ hr{
 }
 
 
-//Desktop view
-@media (min-aspect-ratio: 16/9) {
-  .container{
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 3fr 1fr;
-
-    grid-template-areas:
-    "top bottom"
-    "mid bottom"
-  }
-
-  .top-screen{
-    grid-area: top;
-  }
-
-  .mid-screen{
-    grid-area: mid;
-  }
-
-  .bottom-screen{
-    grid-area: bottom;
-    
-    .forecast-card{
-      display: flex;
-      flex-direction: column;
-
-      .tomorrow-card{
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        width: auto;
-
-        justify-content: center;
-        align-items: center;
-
-        .tomorrow-data{
-          font-size: 3rem;
-          
-          img{
-            width: 8rem;
-          } 
-        }
-      }
-    }
-
-  }
-
-  hr{
-    display: none;
-  }
-}
-
 // Searchbar https://shipow.github.io/searchbox/#tabscss 
-
 
 $custom:(
 	input-width: 40%,
@@ -627,3 +573,106 @@ $custom:(
     padding: 1em;
   }
 
+
+
+//Desktop view
+@media (min-aspect-ratio: 16/9) {
+  /** {
+      outline: solid 1px red;
+  }*/
+
+  :root{
+    font-size: 12px;
+  }
+
+  .searchbox{
+    height: 20px;
+  }
+  
+  .container{
+    display: grid;
+    max-height: 100%;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
+
+    grid-template-areas:
+    "top bottom"
+    "mid bottom"
+  }
+
+  .top-screen{
+    grid-area: top;
+
+    margin:0;
+    padding: 0;
+
+    & > * {
+      margin: 0;
+      padding:0;
+    }
+
+    .today-weather{
+      padding:0;
+
+      .location-card{
+        padding:0;
+      }
+      .weather-card{
+        padding:0;
+      }
+    }
+  }
+
+  .mid-screen{
+    grid-area: mid;
+
+    .today-temps{
+      height: 100%;
+
+      .temp-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+      }
+
+    }
+  }
+
+  .bottom-screen{
+    grid-area: bottom;
+    
+    .forecast-card{
+      display: flex;
+      flex-direction: column;
+
+      .tomorrow-card{
+        display: block;
+        margin-top: 1rem;
+        width: auto;
+
+        .tomorrow-title{
+          margin-top:2rem;
+          margin-bottom: 6rem;
+        }
+
+        .tomorrow-data{
+          font-size: 2rem;
+          
+          img{
+            width: 8rem;
+          } 
+        }
+      }
+    }
+
+  }
+
+  .switch-container{
+    grid-area:"switch"
+  }
+  hr{
+    display: none;
+  }
+}
