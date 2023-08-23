@@ -4,6 +4,7 @@ This is a simple weather app that uses the [WeatherApi](https://www.weatherapi.c
 
 ### [Live Test](https://joaquinarruiz.github.io/weather-app/)
 
+Project made with: [antelor](https://github.com/antelor)
 
 ## Project Screen Shot
 
