@@ -12,7 +12,7 @@ Project made with: [antelor](https://github.com/antelor)
 
 ### Responsive Design
 
-![Responsive Design](Screenshots/ResponsiveExample.png)
+![Responsive Design](Screenshots/ResponsiveExample.gif)
 
 ## Process
 
