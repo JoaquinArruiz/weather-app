@@ -7,4 +7,13 @@ This is a simple weather app that uses the [WeatherApi](https://www.weatherapi.c
 
 ## Project Screen Shot
 
-![Project ScreenShot](Screenshots/Screenshot_20230806_175611.png)
+![Project ScreenShot](Example.png)
+
+### Responsive Design
+
+![Responsive Design](ResponsiveExample.png)
+
+## Process
+
+![Procress](Process.png)
+
