@@ -8,13 +8,13 @@ Project made with: [antelor](https://github.com/antelor)
 
 ## Project Screen Shot
 
-![Project ScreenShot](Example.png)
+![Project ScreenShot](Screenshots/Example.png)
 
 ### Responsive Design
 
-![Responsive Design](ResponsiveExample.png)
+![Responsive Design](Screenshots/ResponsiveExample.png)
 
 ## Process
 
-![Procress](Process.png)
+![Procress](Screenshots/Process.png)
 
