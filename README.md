@@ -10,13 +10,15 @@ Project made with: [antelor](https://github.com/antelor)
 
 ## Project Screen Shot
 
-![Project ScreenShot](Screenshots/Example.png)
+<p align="center">
+  <img src=Screenshots/Example.png alt="Weather-app screenshot"/>
+</p>
 
 ### Responsive Design
 
 ![Responsive Design](Screenshots/ResponsiveExample.gif)
 
-## Process
+## Design Process
 
 ![Procress](Screenshots/Process.png)
 
